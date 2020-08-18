@@ -67,10 +67,6 @@ Once we have all the details we can hit [/search](https://developers.zomato.com/
 To start with, we will need an API key from Zomato, so navigate to [Zomato](https://developers.zomato.com/api) and ‘request an API key’.  
 On being prompted, we may either sign up on Zomato or ‘Continue with Google’. After we have completed the sign up, we should receive the API key
 
-#### Microsoft Bing Maps REST API
-To use the Bing Maps REST API, we will need ‘Bing Maps Key’. Therefore, navigate [here](https://docs.microsoft.com/en-us/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key) and then click on ‘Bing Maps Key’ hyperlink. After we have signed up (if we do not have an account on Microsoft) and provided our basic information, we can create a key. Bing Maps API provides a ‘basic’ key, by default (i.e. it can be specified directly in the request header, no need of OAuth complexity).  
-After the key has been created we can see/ copy it by clicking on ‘My Account’ -> ‘My Keys’.  
-Now, we have what we needed to start with. Let’s dive in to Postman and get the stuff working.
 
 Look at the below self-explanatory state diagram which shows conversation flow with all required states.
 ![Conversation diagram](https://drive.google.com/open?id=0B8VyXj56P9UiOVpLX2RNR1hlb3J4UE1jdnh0Z3ExeDFCWkRJ)
@@ -187,9 +183,31 @@ Keep the all intents mutually exclusive and diversity in its utterance.
 
 Now it’s time to train the bot. 
 Execute below command and explore this for more training options: https://rasa.com/docs/rasa/user-guide/command-line-interface/#train-a-model  
+'rasa train nlu' - trains only the NLU layer
+'rasa train core' - trains the core layer (logical)
 `rasa train`  
 Let’s see how bot performs with limited training data and let’s explore rasa x and improve it.
 Run the following command in every new tab.  
 `rasa run actions`  
-`rasa x`
-Open rasa x for testing and improving the story through interactive learning. Check [Juste's video intro to Rasa X](https://www.youtube.com/watch?v=VXvWdrr2yw8&feature=youtu.be) for more information.
+`rasa shell`
+
+One can also test the individual layers using the following commands :
+'rasa test nlu'
+'rasa test core'
+
+#### rasa command sheet :
+
+
+Command                    			            Effect
+rasa init               -- Creates a new project with example training data, actions, and config files.
+rasa train              -- Trains a model using your NLU data and stories, saves trained model in ./models.
+rasa interactive        -- Starts an interactive learning session to create new training data by chatting.
+rasa shell              -- Loads your trained model and lets you talk to your assistant on the command line.
+rasa run                -- Starts a Rasa server with your trained model. See the Configuring the HTTP API docs for details.
+rasa run actions        -- Starts an action server using the Rasa SDK.
+rasa visualize          -- Visualizes stories.
+rasa test               -- Tests a trained Rasa model using your test NLU data and stories.
+rasa data split nlu     -- Performs a split of your NLU data according to the specified percentages.
+rasa data convert nlu   -- Converts NLU training data between different formats.
+rasa export             -- Export conversations from a tracker store to an event broker.
+
