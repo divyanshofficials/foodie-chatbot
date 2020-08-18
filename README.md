@@ -192,7 +192,9 @@ Run the following command in every new tab.
 `rasa shell`
 
 One can also test the individual layers using the following commands :
+
 'rasa test nlu'
+
 'rasa test core'
 
 #### rasa command sheet :
