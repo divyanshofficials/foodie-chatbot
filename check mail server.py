@@ -10,7 +10,7 @@ from email.message import EmailMessage
 
 t1 = datetime.now()
 
-DEFAULT_DATA_PATH = r'C:\Users\Ayush\study\Upgrad\Chatbot\Project V1\data'
+DEFAULT_DATA_PATH = r'PATH'
 smtp_config = {}
 filepath = DEFAULT_DATA_PATH + "/smtpconfig.txt"
 
@@ -32,7 +32,7 @@ message['Subject'] = "Restaurant Bot | List of {0} Restaurants in {1}"
 
 
 message['From'] = smtp_config["from_email"]
-message['To'] = "ayush.soni206@gmail.com"
+message['To'] = "MAIL_ADDRESS"
    
 s.send_message(message)
 s.quit()

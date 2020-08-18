@@ -15,7 +15,7 @@ from zomato.zomato_api import Zomato
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("__name__")
-user_key = "f62367d981bf6f02b9c173a80122aa62"
+user_key = "YOUR_USER_KEY"
 config = {"user_key": user_key}
 _zomato = Zomato(config)
 

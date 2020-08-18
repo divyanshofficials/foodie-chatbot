@@ -1,0 +1,5 @@
+smtpserver_host=smtp.gmail.com
+smtpserver_port=465
+username=USERNAME
+password=PASSWORD
+from_email=HOST_EMAIL
